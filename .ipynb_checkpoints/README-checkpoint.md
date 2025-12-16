@@ -23,17 +23,18 @@ This repository provides the codebase for the LEARN framework, including:
 - Model definitions and training pipelines for risk prediction
 - Utilities for evaluation and visualization
 
-Important note on data privacy
+⚠️ **Data privacy and availability**
 
-Due to patient privacy protections and regulatory constraints, no EHR data are included or distributed in this repository. The code is released to enable transparency, reproducibility, and reuse with appropriately approved datasets.
+This repository contains **code only**. No patient-level electronic health
+record (EHR) data are included or distributed due to privacy, ethical, and
+regulatory constraints.
 
-## Data availability
+The data used in this study were obtained from **[TriNetX](https://trinetx.com/)** and are subject to
+institutional review board (IRB) approval and data use agreements. Access to
+these data may be granted to qualified researchers through TriNetX.
 
-The data used in this study ([TriNetX](https://trinetx.com/)) consist of electronic health records (EHRs) and are subject to institutional, ethical, and legal restrictions related to patient privacy.
-
-- No patient-level data are shared in this repository
-- Access to data may be granted to qualified researchers subject to appropriate IRB approval and data use agreements
-- The provided code can be modified and applied to other compliant EHR datasets with similar structure
+The provided code can be adapted for use with other compliant EHR datasets
+with similar structure.
 
 ## Implementation
 
@@ -41,15 +42,17 @@ The data used in this study ([TriNetX](https://trinetx.com/)) consist of electro
 
 We provide a python [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) environment used to generate embeddings, train models, and reproduce all reported results.
 
-- System information and important package versions:
+** System information and important package versions:**
 
-System: `Linux`;
+System: `Red Hat Enterprise Linux 8.10 (Ootpa)`;
 
 Python version: `3.11.7`;
 
+GPU: `NVIDIA A100-PCIE-40GB`;
+
 `pytorch`: `2.1.2`;
 
-GPU: `NVIDIA A100-PCIE-40GB`.
+`scikit-learn`: `1.2.2`.
 
 All other dependencies will be downloaded when the provided environment is imported.
 
