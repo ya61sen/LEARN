@@ -35,8 +35,10 @@ these data may be granted to qualified researchers through TriNetX.
 
 The provided code can be adapted for use with other compliant EHR datasets
 with similar structure.
+  
+## Implementation
 
-## ### Required input files (not included)
+### Required input files (not included)
 
 The LEARN pipeline expects the following input files under `data_folder`
 (default: `../data/`):
@@ -73,11 +75,9 @@ Some paths in the code are **environment-dependent** and may need to be updated:
 
 - The NV-Embed-v2 model is loaded from a local Hugging Face cache directory.
   Users should update this path or load the model directly from Hugging Face.
-- The `HF_HOME` environment variable may need adjustment depending on the system.
+- The `HF_HOME` environment variable may need adjustment depending on the system. For example,
   ```python
   local_model_path = "/path/to/huggingface/cache/models--nvidia--NV-Embed-v2/..."
-  
-## Implementation
 
 ### Environment
 
@@ -143,7 +143,7 @@ python src/train.py --LIS 365 --BP 365 --FUP 730 --include_med_emb
 
 ### What happens when you run it
 
-When executed, train.py:
+When executed `train.py`:
 1. Prints the selected configuration
 2. Builds the training dataset via:
 	`generate_embedding_data(LIS, BP, FUP)`
@@ -154,7 +154,7 @@ When executed, train.py:
 
 ## Citation
 
-If you use this code, please cite:
+If you refer to this code, please cite:
 
 `LEARN: LLM-augmented clinical risk scores identify preclinical patients at risk for progression to systemic lupus erythematosus`
 
