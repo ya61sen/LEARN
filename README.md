@@ -36,6 +36,47 @@ these data may be granted to qualified researchers through TriNetX.
 The provided code can be adapted for use with other compliant EHR datasets
 with similar structure.
 
+## ### Required input files (not included)
+
+The LEARN pipeline expects the following input files under `data_folder`
+(default: `../data/`):
+
+- `final_data_yrCut0.txt`  
+  A tab-separated cohort-level EHR table indexed by `patient_id`.  
+  This file contains patient demographics, ANA+ index dates, outcome labels
+  (SLE progression), and aggregated EHR features.
+
+- `diagnosis.csv`  
+  Raw diagnosis records (ICD codes) for all patients in the cohort.
+
+- `procedure.csv`  
+  Raw procedure records (ICD-9-PCS / CPT codes) for all patients in the cohort.
+
+- `medication_drug.csv`  
+  Raw medication records (RxNorm and/or NDC codes) for all patients in the cohort.
+
+- `standardized_terminology.csv`  
+  Mapping table used to convert clinical codes into human-readable text.
+
+- `RxNorm_full_12022024/rrf/RXNSAT.RRF`  
+- `RxNorm_full_12022024/rrf/RXNCONSO.RRF`  
+  RxNorm reference files used to normalize medication codes.
+
+Derived cohort-level summaries and embeddings are generated automatically and
+saved under `processed_data/` and `embeddings/`.
+
+---
+
+### Notes on system-specific paths
+
+Some paths in the code are **environment-dependent** and may need to be updated:
+
+- The NV-Embed-v2 model is loaded from a local Hugging Face cache directory.
+  Users should update this path or load the model directly from Hugging Face.
+- The `HF_HOME` environment variable may need adjustment depending on the system.
+  ```python
+  local_model_path = "/path/to/huggingface/cache/models--nvidia--NV-Embed-v2/..."
+  
 ## Implementation
 
 ### Environment
