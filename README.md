@@ -36,7 +36,7 @@ these data may be granted to qualified researchers through TriNetX.
 The provided code can be adapted for use with other compliant EHR datasets
 with similar structure.
   
-## Implementation
+## Implementation details
 
 ### Required input files (not included)
 
@@ -67,9 +67,7 @@ The LEARN pipeline expects the following input files under `data_folder`
 Derived cohort-level summaries and embeddings are generated automatically and
 saved under `processed_data/` and `embeddings/`.
 
----
-
-### Notes on system-specific paths
+### System-specific paths
 
 Some paths in the code are **environment-dependent** and may need to be updated:
 
@@ -78,22 +76,19 @@ Some paths in the code are **environment-dependent** and may need to be updated:
 - The `HF_HOME` environment variable may need adjustment depending on the system. For example,
   ```python
   local_model_path = "/path/to/huggingface/cache/models--nvidia--NV-Embed-v2/..."
+  ```
 
 ### Environment
 
 We provide a python [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) environment used to generate embeddings, train models, and reproduce all reported results.
 
-** System information and important package versions:**
+**System information and key software versions**
 
-System: `Red Hat Enterprise Linux 8.10 (Ootpa)`;
-
-Python version: `3.11.7`;
-
-GPU: `NVIDIA A100-PCIE-40GB`;
-
-`pytorch`: `2.1.2`;
-
-`scikit-learn`: `1.2.2`.
+- **Operating system**: Red Hat Enterprise Linux 8.10 (Ootpa)
+- **Python**: 3.11.7
+- **GPU**: NVIDIA A100-PCIE-40GB
+- **PyTorch**: 2.1.2
+- **scikit-learn**: 1.2.2
 
 All other dependencies will be downloaded when the provided environment is imported.
 
@@ -132,7 +127,7 @@ Defaults:
 - --LIS: 2*365 (730 days)
 - --BP: 180 days
 - --FUP: 5*365 (1825 days)
-- medication embeddings: enabled unless `--include_med_emb` is removed
+- medication embeddings: disabled by default; enabled when `--include_med_emb` is specified
 
 2) Train with custom time windows
 
